@@ -1,21 +1,39 @@
-  <div class="container">
-      <header class="header">
-        <h1>Rock Paper Scissors</h1>
-        <button id="restart" class="restart-btn">Restart Game</button>
-        <div id="score" class="score">
-          <p>Player: 0</p>
-          <p>Computer: 0</p>
-        </div>
-      </header>
-      <h2>Make Your Selection</h2>
-      <div class="choices">
-        <i id="rock" class="choice fas fa-hand-rock fa-10x"></i>
-        <i id="paper" class="choice fas fa-hand-paper fa-10x"></i>
-        <i id="scissors" class="choice fas fa-hand-scissors fa-10x"></i>
-      </div>
-    </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="lesson-12b.css">
+  </head>
+  <body>
+    <p class="title">Rock Paper Scissors</p>
+    <button class="move-button js-rock-button">
+      <img src="rock-emoji.png" class="move-icon">
+    </button>
 
-    <!-- Modal -->
-    <div class="modal">
-      <div id="result" class="modal-content"></div>
-    </div>
+    <button class="move-button js-paper-button">
+      <img src="paper-emoji.png" class="move-icon">
+    </button>
+
+    <button class="move-button js-scissors-button">
+      <img src="scissors-emoji.png" class="move-icon">
+    </button>
+
+    <p class="js-result result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score score"></p>
+
+    <button onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+      updateScoreElement();
+    " class="reset-score-button js-reset-score-button">Reset Score</button>
+
+    <button class="auto-play-button" onclick="
+      autoPlay();
+    ">Auto Play</button>
+    
+    <script src="lesson-12b.js"></script>
+  </body>
+</html>
